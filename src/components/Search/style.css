@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     padding: 5px;
-    background: #F05736;
+    background: #0086BF;
 }
 
 .search-input {
@@ -12,5 +12,5 @@
     margin: auto;
     padding: 1.7em;
     border-radius: 2em;
-    border: 1px solid #F05736;
+    border: 1px solid #0086BF;
 }
