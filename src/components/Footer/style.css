@@ -1,0 +1,11 @@
+.footer {
+    position: relative;
+    width: 100%;
+    bottom: 0em;
+    padding: 15px;
+    background: black;
+}
+
+.footer-text {
+    font-size: 0.7em;
+}

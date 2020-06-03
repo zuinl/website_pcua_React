@@ -1,0 +1,23 @@
+.header-container {
+    width: 100%;
+    padding: 30px;
+    background: black;
+}
+
+.sports-name {
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Archivo';
+}
+
+.sports-question {
+    color: #F05736;
+}
+
+.sports-title {
+    color: #0092D1;
+}
+
+.sports-exclamation {
+    color: #F79633;
+}

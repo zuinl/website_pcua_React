@@ -1,0 +1,39 @@
+.results-container {
+    position: relative;
+    padding: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: #F79633;
+}
+
+.results-box {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    background: #0092D1;
+    border-radius: 20px;
+}
+
+/* .class-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.class-time {
+    font-size: 1.3em;
+}
+
+.button {
+    margin: 10px;
+    padding: 15px;
+    color: white;
+    background: #F79633;
+    border: 1px solid #F79633;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background: #F05736;
+    border: 1px solid #F05736;
+} */
+
