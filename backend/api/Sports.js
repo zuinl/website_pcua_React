@@ -1,33 +1,21 @@
 module.exports = app => {
     const search = (req, res) => {
         let status
-        let message = ""
         app.db.sportModel
         .find({ title: { $regex: '.*' + req.params.searchText + '.*', $options: 'i' } }, (err, docs) => {
-            if(err) {
-                status = 500,
-                message = "Houve um erro no servidor"
-            } else {
-                status = 200
-                message = "Sucesso"
-            }
-            res.status(status).json({ message, sports: docs })
+            if(err) status = 500
+            else status = 200
+            res.status(status).json(docs)
         })
     }
 
     const getAll = (req, res) => {
         let status
-        let message = ""
         app.db.sportModel
         .find({ }, (err, docs) => {
-            if(err) {
-                status = 500,
-                message = "Houve um erro no servidor"
-            } else {
-                status = 200
-                message = "Sucesso"
-            }
-            res.status(status).json({ message, sports: docs })
+            if(err) status = 500
+            else status = 200
+            res.status(status).json(docs)
         })
     }
 
@@ -50,7 +38,7 @@ module.exports = app => {
                 status = 201
                 message = `Turma ${req.body.title} criada com sucesso`
             }
-            res.status(status).json({ message })
+            res.status(status).json(message)
         })
     }
 

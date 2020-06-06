@@ -1,16 +1,23 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { search, setLoading } from '../../redux/actions/Search'
+import { search, setLoading } from '../../redux/actions/Sports'
 
 import '../../App.css'
 import './style.css'
 
 class Search extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = { searchText: '' }
+        this.onSearch = this.onSearch.bind(this)
+    }
     
     onSearch = event => {
         this.props.setLoading(true)
-        this.props.search(event.target.value)
+        this.setState({ searchText: event.target.value })
+        this.props.search(this.state.searchText)
         this.props.setLoading(false)
     }
 
@@ -40,10 +47,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const mapStateToProps = ({ search }) => {
-    return {
-        searchText: search.searchText
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(null, mapDispatchToProps)(Search)

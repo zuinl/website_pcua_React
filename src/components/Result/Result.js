@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
+import { search } from '../../redux/actions/Sports'
 
 import '../../App.css'
 import './style.css'
@@ -9,6 +10,11 @@ import SportClass from './SportClass/SportClass'
 import Loading from '../Loading/Loading'
 
 class Result extends React.Component {
+
+    componentDidMount = () => {
+        this.props.search()
+    }
+
     render() {
         return (
             <div className="results-container">
@@ -16,13 +22,13 @@ class Result extends React.Component {
 
                     {this.props.isLoading ? <Loading /> : null}
 
-                    {this.props.results.map(activity => {
+                    {this.props.sports.map(activity => {
                         return (
                             <SportClass {...activity} key={activity.id} />
                         )
                     })}
 
-                    {this.props.results.length === 0 ? 
+                    {this.props.sports.length === 0 ? 
                     <div className="row center">
                         <div className="col-12">
                             <h4 className="text">Não encontramos resultados para sua busca.</h4>
@@ -35,11 +41,17 @@ class Result extends React.Component {
     }
 }
 
-const mapStateToProps = ({ search }) => {
+const mapStateToProps = ({ sports }) => {
     return {
-        results: search.results,
-        isLoading: search.isLoading
+        sports: sports.sports,
+        isLoading: sports.isLoading
     }
 }
 
-export default connect(mapStateToProps, null)(Result)
+const mapDispatchToProps = dispatch => {
+    return {
+        search: () => dispatch(search())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result)
