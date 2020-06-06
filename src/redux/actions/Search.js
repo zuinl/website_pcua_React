@@ -1,47 +1,37 @@
 import { SEARCH, LOADING } from './ActionTypes'
-
-const results = [
-    {
-        id: 1,
-        title: "Ballet",
-        time: "11h às 12h",
-        project: "Vida Ativa",
-        address: "Clube VW",
-        instructor: "Irina"
-    },
-    {
-        id: 2,
-        title: "Ballet",
-        time: "11h às 12h",
-        project: "Vida Ativa",
-        address: "Clube VW",
-        instructor: "Irina"
-    },
-    {
-        id: 3,
-        title: "Ballet",
-        time: "11h às 12h",
-        project: "Vida Ativa",
-        address: "Clube VW",
-        instructor: "Irina"
-    },
-    {
-        id: 4,
-        title: "Ballet",
-        time: "11h às 12h",
-        project: "Vida Ativa",
-        address: "Clube VW",
-        instructor: "Irina"
-    }
-]
+import server from './Server'
 
 export const search = searchText => {
-    let searchResults = results.filter(result => {
-        return result.title === searchText
-    })
-    return {
-        type: SEARCH,
-        payload: { searchText, results: searchResults }
+    return dispatch => {
+        const endPoint = searchText.trim() === "" ? "getAll" : "search/" + searchText
+        fetch(`${server}/sports/${endPoint}`, {
+            method: "GET"
+        })
+        .then(async res => {
+            const rawSports = await res.json()
+            let sports = []
+            rawSports.map(sport => {
+                sports.push({
+                    id: sport._id,
+                    title: sport.title,
+                    time: sport.time,
+                    project: sport.project,
+                    address: sport.address,
+                    instructor: sport.instructor
+                })
+            })
+
+            return {
+                type: SEARCH,
+                payload: { searchText, results: sports }
+            }
+        })
+        .catch(err => {
+            return {
+                type: SEARCH,
+                payload: { searchText, results: [] }
+            }
+        })
     }
 }
 
