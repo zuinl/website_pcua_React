@@ -2,12 +2,22 @@
 Website *single-page* criado com o React.js para a pesquisa das atividades esportivas disponibilizadas pela Secretaria de Esportes e Lazer da 
 Prefeitura Municipal de Taubaté.
 
-Foram utilizadas as seguintes bibliotecas e tecnologias:
-* React.js
-* Redux (React Redux)
-
 O objetivo da página é o de aprimorar habilidades com o React.js para a *web* e portfólio, além de uma possível implementação em produção 
 na Secretaria de Esportes.
+
+## O que foi utilizado?
+
+**Front End**
+* React.js
+* React Redux
+* HTML5
+* CSS 3 (puro)
+
+**Back End**
+* Node.js
+* MongoDB
+* Dependências dev: nodemon
+* Dependências: Express (com middleware body-parser e cors), consign e mongoose
 
 ## Capturas de tela
 
