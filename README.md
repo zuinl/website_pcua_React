@@ -22,9 +22,9 @@ na Secretaria de Esportes.
 ## Capturas de tela
 
 ### No *desktop*
-<img src="src/assets/screenshots/pcua_desktop.PNG" width="700" />
+<img src="react-ui/src/assets/screenshots/pcua_desktop.PNG" width="700" />
 <img src="src/assets/screenshots/pcua_desktop2.PNG" width="700" />
 
 ### No *mobile*
-<img src="src/assets/screenshots/pcua_mobile.png" width="250" />
-<img src="src/assets/screenshots/pcua_mobile2.png" width="250" />
+<img src="react-ui/src/assets/screenshots/pcua_mobile.png" width="250" />
+<img src="react-ui/src/assets/screenshots/pcua_mobile2.png" width="250" />
